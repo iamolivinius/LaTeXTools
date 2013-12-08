@@ -1,5 +1,5 @@
 # ST2/ST3 compat
-from __future__ import print_function 
+from __future__ import print_function
 import sublime
 if sublime.version() < '3000':
 	_ST3 = False
@@ -27,7 +27,8 @@ class Delete_temp_filesCommand(sublime_plugin.WindowCommand):
 
 		# Delete the files.
 		temp_exts = ['.blg','.bbl','.aux','.log','.brf','.nlo','.out','.dvi','.ps',
-			'.lof','.toc','.fls','.fdb_latexmk','.pdfsync','.synctex.gz','.ind','.ilg','.idx']
+			'.lof','.toc','.fls','.fdb_latexmk','.pdfsync','.synctex.gz','.ind','.ilg','.idx',
+			'.bcf', '.lot', '.tdo', '.run.xml']
 
 		for temp_ext in temp_exts:
 			file_name_to_del = self.tex_base + temp_ext
@@ -37,4 +38,4 @@ class Delete_temp_filesCommand(sublime_plugin.WindowCommand):
 				os.remove(file_name_to_del)
 
 		sublime.status_message("Deleted the temp files")
-		
+
